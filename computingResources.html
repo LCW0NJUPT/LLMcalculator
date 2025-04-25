@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<!-- 省战新产品运营中心 智算团队 lcw 20250425 -->
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="icon" href="./assets/logo.webp" type="image/webp"> -->
+    <link rel="icon" href="https://cdn.jsdmirror.com/gh/LCW0NJUPT/LLMcalculator/assets/logo.webp" type="image/webp">
+
+    <title>省内算力资源信息展示</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* 禁止页面整体滚动 */
+        }
+
+        .bg-image {
+            /* background-image: url('./assets/pic_computing_resources.webp'); */
+            background-image: url('https://cdn.jsdmirror.com/gh/LCW0NJUPT/LLMcalculator/assets/pic_computing_resources.webp');
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            position: fixed; /* 背景图片固定 */
+            width: 100%;
+            z-index: -1; /* 将背景图片置于底层 */
+        }
+
+        .content {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: white;
+            width: 90%;
+            max-width: 1200px;
+            height: calc(100vh - 40px); /* 修改高度计算方式，减去padding总和 */
+            overflow-y: auto;
+            padding: 20px 0;
+            /* 新增滚动条隐藏样式 */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE 10+ */
+        }
+
+        .content::-webkit-scrollbar {
+            display: none; /* 隐藏Chrome等浏览器滚动条 */
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+
+        .update-time {
+            color: #ddd;
+            margin-bottom: 40px;
+        }
+
+        .section {
+            background-color: rgba(255, 255, 255, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .section h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .section p {
+            margin: 10px 0;
+            color: #ddd;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+        }
+
+        th {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .team-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .team-member {
+            flex: 1 1 200px;
+            background-color: rgba(255, 255, 255, 0.35);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .section h2 {
+                font-size: 20px;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .team-info {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-image"></div> <!-- 将背景图片单独放置 -->
+    <div class="content">
+        <h1>省内算力资源信息展示</h1>
+        <div class="update-time">当前信息更新时间：2025-04-25 14:30</div>
+
+        <div class="section">
+            <h2>算力申请流程</h2>
+            <p>● 分配原则：按先到先得原则，对于已付费、已中标、已签订合同或有需求函的需求，提供相关证明材料后可优先分配资源</p>
+            <p>● 上报商机：XXX商机系统->填报新增资源商机需求，注明“预售”->填写客户名称、需求资源类型、需求量等信息；同步邮件报送至XXX部门</p>
+            <p>● 资源预售：预售机型均在上架流程中，通过承诺函锁定设备，XXX上线后转为下单</p>
+        </div>
+
+        <div class="section">
+            <h2>公有云DS算力资源</h2>
+            <p>备注：以下为省内公有云DS算力资源分布情况，数据实时更新。</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>资源</th>
+                        <th>DS支持类型</th>
+                        <th>节点</th>
+                        <th>可售数量</th>
+                        <th>标准价格（元/月/台）</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- V100 -->
+                    <tr>
+                        <td>V100</td>
+                        <td>70B (INT4)：4*V100</td>
+                        <td>苏州</td>
+                        <td>？？台</td>
+                        <td>0</td>
+                        <td>价格包含40GB超高IO费用</td>
+                    </tr>
+                    <tr>
+                        <td>V100</td>
+                        <td>32B (INT4)：2*V100</td>
+                        <td>苏州</td>
+                        <td>？？台</td>
+                        <td>0</td>
+                        <td>/</td>
+                    </tr>
+                    <tr>
+                        <td>V100</td>
+                        <td>32B (INT4)：2*V100</td>
+                        <td>上海</td>
+                        <td>？？台</td>
+                        <td>0</td>
+                        <td>/</td>
+                    </tr>
+                    <!-- 其他资源行... -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>一体机DS算力资源</h2>
+            <p>备注：以下为省内一体机DS算力资源分布情况，数据实时更新。</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>算力资源</th>
+                        <th>规格</th>
+                        <th>台数</th>
+                        <th>预计供货时间</th>
+                        <th>模型参数</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>910B一体机（280T）</td>
+                        <td>32G</td>
+                        <td>？？</td>
+                        <td>4月底</td>
+                        <td>70B及以下蒸馏模型</td>
+                        <td>可XXX下单，下单后3-4周到货</td>
+                    </tr>
+                    <tr>
+                        <td>910B一体机（280T）</td>
+                        <td>64G</td>
+                        <td>？？</td>
+                        <td>可下单</td>
+                        <td>671B INT8（2台）</td>
+                        <td>可XXX下单，下单后3-4周到货</td>
+                    </tr>
+                    <!-- 其他资源行... -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>近期新增算力资源</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>算力资源</th>
+                        <th>规格</th>
+                        <th>台数</th>
+                        <th>预计供货时间</th>
+                        <th>模型参数</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>910B一体机（280T）</td>
+                        <td>32G</td>
+                        <td>？？</td>
+                        <td>4月底</td>
+                        <td>70B及以下蒸馏模型</td>
+                        <td>可XXX下单，下单后3-4周到货</td>
+                    </tr>
+                    <!-- 其他新增资源行... -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>省专支撑团队信息</h2>
+            <div class="team-info">
+                <div class="team-member">
+                    <strong>张三</strong>
+                    <p>职位：技术方案支撑</p>
+                    <p>电话：15300000000</p>
+                </div>
+                <div class="team-member">
+                    <strong>李四</strong>
+                    <p>职位：大模型支撑</p>
+                    <p>电话：15300000000</p>
+                </div>
+                <div class="team-member">
+                    <strong>王五</strong>
+                    <p>职位：公有云支撑</p>
+                    <p>电话：15300000000</p>
+                </div>
+                <!-- 其他团队成员信息... -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
